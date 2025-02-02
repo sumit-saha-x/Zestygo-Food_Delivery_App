@@ -3,7 +3,12 @@ import User from '../models/User.js';
 import { body, validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs'
 import jwt from "jsonwebtoken";
-const jwtSecret="ThisPasswordIsEndtoEndEncrpted"                                    //To generate token for sessions
+import dotenv from 'dotenv';
+
+// Load environment variables from the .env file
+dotenv.config();
+
+const jwtSecret = process.env.JWT_SECRET;                                 //To generate token for sessions
 
 const router = express.Router()                                                      // router used to splitting routes into separate file which is call by app.use()\
 
